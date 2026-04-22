@@ -2,6 +2,7 @@ import numpy as np
 from sklearn.preprocessing import StandardScaler
 from sklearn import linear_model
 from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_squared_error, mean_absolute_error
 import pandas as pd
 
 #using the cleaned data to train the model
@@ -32,3 +33,13 @@ input_data = np.array([2052, 4.0, 2, 2045]).reshape(1, -1)
 print("========Output prediction========")
 print(RegModel.predict(input_data))
 
+print(RegModel.predict(input_data))
+
+#checking the metrics of the model using mean absolute error and mean squared error
+y_pred = RegModel.predict(X_test)
+
+mae = mean_absolute_error(y_test, y_pred)   
+mse = mean_squared_error(y_test, y_pred)
+
+print(f"Mean Absolute Error: {mae}")
+print(f"Mean Squared Error: {mse}")
